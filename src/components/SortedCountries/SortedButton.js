@@ -10,6 +10,7 @@ import cx from "classnames";
 import styles from "./SortedButton.module.scss";
 
 const SortedButton = ({ sortedBy, order, type, handleClick }) => {
+  // Handle Icon
   const Icon = () => {
     if (type === "cases") {
       return order === "desc" ? (
@@ -26,17 +27,18 @@ const SortedButton = ({ sortedBy, order, type, handleClick }) => {
     }
   };
 
+  // Handle order (asc || desc)
   const handleOrder = (order) => {
     const orders = ["asc", "desc"];
     return orders[Number(!orders.indexOf(order))];
   };
 
+  // Handle click
   const onClick = () => {
     const options =
       sortedBy === type
         ? { sortedBy, order: handleOrder(order) }
         : { sortedBy: type, order };
-    console.log(options);
     handleClick(options);
   };
 

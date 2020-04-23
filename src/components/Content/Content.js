@@ -20,8 +20,11 @@ const Content = ({ showSideBar }) => {
     selectCountry,
     data: { lastUpdate },
   } = useContext(Context);
+
+  // classnames of Content
   const classnames = cx(styles.content, { [styles.fullpage]: !showSideBar });
 
+  // Loading Data
   if (loadingContent) {
     const country = selectCountry ? selectCountry : "World";
     return (
@@ -31,9 +34,8 @@ const Content = ({ showSideBar }) => {
     );
   }
 
-  if (error) {
-    return <Error />;
-  }
+  // Error
+  if (error) return <Error />;
 
   return (
     <div className={classnames}>

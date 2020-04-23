@@ -18,19 +18,23 @@ import cx from "classnames";
 import styles from "./SideBar.module.scss";
 
 const SideBar = ({ showSideBar, handleSideBar }) => {
-  const [loading, setLoading] = useState(true);
+  // All countries
   const [countries, setCountries] = useState([]);
+  // Countries filtered by input value
   const [filtredCountries, setFiltredCountries] = useState([]);
+  // Input value
   const [value, setValue] = useState("");
+  // Countries sorting options
   const [sorted, setSorted] = useState({
     sortedBy: "cases",
     order: "desc",
   });
 
-  const { confirmedCases, error } = useContext(Context);
+  // Get data from Context
+  const { confirmedCases } = useContext(Context);
 
   useEffect(() => {
-    // Formate Data
+    // format provinces to countries
     const reformatResponse = reformatProvinceToCountry(confirmedCases);
     // Sorted countries
     const sortedResponse = sortedCountries(reformatResponse, sorted);
@@ -39,22 +43,19 @@ const SideBar = ({ showSideBar, handleSideBar }) => {
     const filterResponse = filterCountries(sortedResponse, value);
 
     setFiltredCountries(filterResponse);
-    setLoading(false);
   }, [confirmedCases, sorted, value]);
 
+  // Handle countries sorting options
   const handleSortedOptions = (options) => {
     setSorted(options);
     setCountries(sortedCountries(countries, options));
   };
 
+  // handle change input value
   const handleChange = (value) => {
     setValue(value);
     setFiltredCountries(filterCountries(countries, value));
   };
-
-  if (loading) return <SpinnerLoader />;
-
-  if (error) return <Error />;
 
   return (
     <div className={cx(styles.sidebar, { [styles.hide]: !showSideBar })}>

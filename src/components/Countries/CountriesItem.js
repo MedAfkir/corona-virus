@@ -9,15 +9,19 @@ const CountriesItem = ({
   country: { countryRegion, confirmed },
 }) => {
   const { handleSelectCountry, selectCountry } = useContext(Context);
+
+  // Handle Click
+  const handleClick = (e) => {
+    if (window.innerWidth <= 1000) handleSideBar();
+    handleSelectCountry(countryRegion);
+  };
+
   return (
     <li
       className={cx(styles.country, {
         [styles.active]: selectCountry === countryRegion,
       })}
-      onClick={() => {
-        if (window.innerWidth <= 1000) handleSideBar();
-        handleSelectCountry(countryRegion);
-      }}
+      onClick={handleClick}
     >
       <div className={styles.name}>{countryRegion}</div>
       <div className={styles.count}>{formatterNumbers(confirmed)}</div>

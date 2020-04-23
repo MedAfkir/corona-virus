@@ -3,6 +3,7 @@ import Counter from "./Counter";
 import { Context } from "./../../Context";
 
 const Counters = (props) => {
+  // Get data from Context
   const {
     data: { confirmed, recovered, deaths },
   } = useContext(Context);

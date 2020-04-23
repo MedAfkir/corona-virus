@@ -44,6 +44,7 @@ const Provider = ({ children }) => {
       setData({ confirmed, recovered, deaths });
       setLoadingContent(false);
     } catch (e) {
+      // Catch errors
       console.error(e);
       setError(true);
       setLoadingContent(false);
@@ -54,7 +55,7 @@ const Provider = ({ children }) => {
     fetchData();
   }, []);
 
-  // handle select country
+  // handle country selected
   const handleSelectCountry = (country) => {
     setSelectCountry(country);
     setLoadingContent(true);

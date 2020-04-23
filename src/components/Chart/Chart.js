@@ -3,21 +3,20 @@ import { PieChart, Pie, Sector } from "recharts";
 import { colors } from "./../../utils";
 import { Context } from "./../../Context";
 
-const renderActiveShape = (props) => {
+const renderActiveShape = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  startAngle,
+  endAngle,
+  fill,
+  payload,
+  percent,
+  value,
+}) => {
   const RADIAN = Math.PI / 180;
-  const {
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    endAngle,
-    fill,
-    payload,
-    percent,
-    value,
-  } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + (outerRadius + 10) * cos;
@@ -90,8 +89,10 @@ const Chart = (props) => {
     data: { confirmed, recovered, deaths },
   } = useContext(Context);
 
+  // Calcul active cases
   const active = confirmed.value - recovered.value - deaths.value;
 
+  // Pie Chart Data
   const pieData = [
     { name: "Active", value: active, fill: colors.main },
     { name: "Recovered", value: recovered.value, fill: colors.green },

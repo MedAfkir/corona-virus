@@ -7,6 +7,8 @@ import styles from "./Counter.module.scss";
 const Counter = ({ type, count }) => {
   let label = "";
   let Icon;
+
+  // Define label and icon by the type of counter
   switch (type) {
     case "deaths":
       label = "Deaths";

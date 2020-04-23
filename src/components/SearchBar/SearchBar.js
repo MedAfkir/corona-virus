@@ -5,11 +5,13 @@ import styles from "./SearchBar.module.scss";
 const SearchBar = ({ value, handleChangeValue }) => {
   const [showBtn, setShowBtn] = useState(false);
 
+  // Handle change
   const handleChange = (e) => {
     handleChangeValue(e.target.value);
     setShowBtn(!!e.target.value);
   };
 
+  // Handle click
   const handleClick = () => {
     handleChangeValue("");
     setShowBtn(false);
