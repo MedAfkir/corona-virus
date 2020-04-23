@@ -47,10 +47,7 @@ const reformatProvinceToCountry = (data) => {
 };
 
 // Sorted countries by cases (numeric) or names (alphabetical)
-const sortedCountries = (
-  countries,
-  options = { sortedBy: "cases", order: "desc" }
-) => {
+const sortedCountries = (countries, options) => {
   const { sortedBy, order } = options;
 
   const sortedCountriesArr = countries.sort((a, b) => {
@@ -62,8 +59,8 @@ const sortedCountries = (
 
     if (sortedBy === "names") {
       return order === "desc"
-        ? a.countryRegion.localeCompare(b.countryRegion)
-        : b.countryRegion.localeCompare(a.countryRegion);
+        ? b.countryRegion.localeCompare(a.countryRegion)
+        : a.countryRegion.localeCompare(b.countryRegion);
     }
 
     return 0;

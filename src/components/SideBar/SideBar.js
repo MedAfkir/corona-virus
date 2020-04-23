@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-
-import SpinnerLoader from "./../Loader";
-import Error from "./../Error";
 import SearchBar from "./../SearchBar";
 import SortedCountries from "./../SortedCountries";
 import CountriesList from "../Countries";
-
 import { Context } from "./../../Context";
-
 import {
   filterCountries,
   sortedCountries,
