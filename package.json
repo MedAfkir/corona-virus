@@ -15,10 +15,7 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.4",
     "react-loader-spinner": "^3.1.14",
-    "react-loadingg": "^1.7.2",
-    "react-perfect-scrollbar": "^1.5.8",
     "react-scripts": "3.4.1",
-    "react-shadow-scroll": "^1.0.0",
     "react-spinners-css": "^1.1.7",
     "recharts": "^1.8.5",
     "sitb-react-icon": "^1.0.3"
