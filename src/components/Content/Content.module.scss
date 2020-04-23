@@ -1,0 +1,19 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.content {
+  position: relative;
+  overflow-x: hidden;
+  padding: 30px;
+  margin-top: $header-height;
+  margin-left: $sidebar-width;
+  transition: $transition-sidebar;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  &.fullpage {
+    margin-left: 0;
+  }
+  @media screen and (max-width: 1000px) {
+    margin-left: 0 !important;
+  }
+}

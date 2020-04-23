@@ -1,0 +1,39 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+$transition: 150ms ease-in-out;
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  color: #252525;
+  font-size: 15px;
+  font-weight: 700;
+  overflow: hidden;
+  &,
+  &:before {
+    transition: $transition;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #252525;
+    transform: scaleX(0);
+  }
+  &:hover {
+    // color: $main-color;
+    &:before {
+      // background-color: $main-color;
+      transform: scaleX(1);
+    }
+  }
+  span {
+    margin-left: 7px;
+  }
+}

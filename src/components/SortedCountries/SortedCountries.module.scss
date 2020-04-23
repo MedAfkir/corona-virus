@@ -1,0 +1,12 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.filters {
+  display: flex;
+  width: 80%;
+  height: 40px;
+  margin: 20px 10% 0;
+  background-color: #f0f3f7;
+  border-radius: 7px;
+  overflow: hidden;
+}

@@ -1,0 +1,24 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.country {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+  &:hover,
+  &.active {
+    background-color: #edeffd;
+  }
+}
+.name {
+  color: #817c9b;
+  text-transform: capitalize;
+}
+.count {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #261d56;
+}

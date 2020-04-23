@@ -1,0 +1,62 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+$notification-height: 30px;
+
+.notification {
+  position: fixed;
+  top: 100px; // 20px + 80px (header height)
+  right: 20px;
+  display: flex;
+  align-items: center;
+  height: $notification-height;
+  border-radius: 3px;
+  background-color: rgb(255, 250, 230);
+  color: rgb(255, 139, 0);
+  border-radius: 4px;
+  overflow: hidden;
+  transform: translateX(110%);
+  animation: translate 700ms forwards 200ms;
+
+  &.hidden {
+    display: none;
+  }
+
+  @keyframes translate {
+    from {
+      transform: translateX(110%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  p {
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .alertIcon {
+    background-color: rgb(255, 171, 0);
+    color: #fffffe;
+  }
+
+  .deleteIcon,
+  .alertIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $notification-height;
+    height: 100%;
+  }
+
+  .deleteIcon {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 150ms ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

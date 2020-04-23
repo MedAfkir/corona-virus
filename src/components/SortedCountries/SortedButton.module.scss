@@ -1,0 +1,12 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.filter {
+  flex: 1;
+  transition: 150ms ease-in-out;
+}
+.filter.active,
+.filter:hover {
+  color: #fff;
+  background-color: $main-color;
+}

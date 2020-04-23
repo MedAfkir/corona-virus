@@ -1,0 +1,55 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: $thumbBG $scrollbarBG;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $scrollbarBG;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumbBG;
+    border-radius: 7px;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $body-bg;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+a,
+button,
+input {
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 1170px;
+  margin: auto;
+}
+
+::selection {
+  background-color: $main-color;
+  color: #fff;
+}

@@ -1,0 +1,27 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.sidebar {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  width: $sidebar-width;
+  border-right: 1px solid #eee;
+  background-color: #fff;
+  transition: $transition-sidebar;
+  z-index: 999;
+  &.hide {
+    transform: translateX(-100%);
+  }
+}
+
+.sortedList {
+  position: sticky;
+  padding: 20px 20px 10px;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px;
+}

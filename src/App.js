@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useContext } from "react";
+
+import Error from "./components/Error";
+import SpinnerLoader from "./components/Loader";
+import Header from "./components/Header";
+import SideBar from "./components/SideBar";
+import Content from "./components/Content/Content";
+
+import { Context } from "./Context";
 
 function App() {
+  const [showSideBar, setShowSideBar] = useState(window.innerWidth > 1100);
+  const { loading, error } = useContext(Context);
+
+  const handleSideBar = () => {
+    setShowSideBar(!showSideBar);
+  };
+
+  if (loading) {
+    return <SpinnerLoader text="Loading data..." />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header handleSideBar={handleSideBar} />
+
+      <SideBar showSideBar={showSideBar} handleSideBar={handleSideBar} />
+
+      <Content showSideBar={showSideBar} />
     </div>
   );
 }

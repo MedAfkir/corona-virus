@@ -1,0 +1,60 @@
+@import "./../../assets/variables";
+@import "./../../assets/base";
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 32%;
+  padding: 40px 20px;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08),
+    0 -5px 10px rgba(255, 255, 255, 0.8);
+  &:not(:last-child) {
+    margin-right: 2%;
+  }
+  &.confirmed {
+    border-top: 7px solid $main-color;
+  }
+  &.recovered {
+    border-top: 7px solid $green;
+  }
+  &.deaths {
+    border-top: 7px solid $red;
+  }
+  .icon {
+    &.confirmed {
+      color: $main-color;
+    }
+    &.recovered {
+      color: $green;
+    }
+    &.deaths {
+      color: $red;
+    }
+  }
+  .count {
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    font-weight: bold;
+    color: #252525;
+  }
+
+  .label {
+    font-size: 16px;
+    color: #555555;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 48%;
+    margin: 1% !important;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin: 0 0 20px !important;
+  }
+}
