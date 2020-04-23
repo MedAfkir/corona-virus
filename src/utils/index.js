@@ -1,9 +1,11 @@
+// common colors
 const colors = {
   main: "#4c9aed",
   green: "#56cd82",
   red: "#ef6960",
 };
 
+// format number to string (abbreviation: k or m)
 const formatterNumbers = (number) => {
   if (number > 999999) {
     return `${(number / Math.pow(10, 6)).toFixed(1)}m`;
@@ -14,6 +16,7 @@ const formatterNumbers = (number) => {
   }
 };
 
+// Convert provinces to countries
 const reformatProvinceToCountry = (data) => {
   const countries = [];
 
@@ -43,6 +46,7 @@ const reformatProvinceToCountry = (data) => {
   return countries;
 };
 
+// Sorted countries by cases (numeric) or names (alphabetical)
 const sortedCountries = (
   countries,
   options = { sortedBy: "cases", order: "desc" }
@@ -68,6 +72,7 @@ const sortedCountries = (
   return sortedCountriesArr;
 };
 
+// Filter countries
 const filterCountries = (countries, value) => {
   if (value === "") {
     return countries;
