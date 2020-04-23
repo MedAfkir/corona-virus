@@ -20,9 +20,9 @@ const SortedButton = ({ sortedBy, order, type, handleClick }) => {
       );
     } else if (type === "names") {
       return order === "desc" ? (
-        <FontAwesomeIcon icon={faSortAlphaDown} />
-      ) : (
         <FontAwesomeIcon icon={faSortAlphaDownAlt} />
+      ) : (
+        <FontAwesomeIcon icon={faSortAlphaDown} />
       );
     }
   };
