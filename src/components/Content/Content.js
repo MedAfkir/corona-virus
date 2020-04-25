@@ -6,7 +6,6 @@ import GoToWorldContent from "./../GoToWorldContent";
 import Title from "../Title";
 import Counters from "../Counters";
 import Chart from "./../Chart";
-import Notification from "./../Notification";
 
 import { Context } from "./../../Context";
 
@@ -14,12 +13,7 @@ import cx from "classnames";
 import styles from "./Content.module.scss";
 
 const Content = ({ showSideBar }) => {
-  const {
-    error,
-    loadingContent,
-    selectCountry,
-    data: { lastUpdate },
-  } = useContext(Context);
+  const { error, loadingContent, selectCountry } = useContext(Context);
 
   // classnames of Content
   const classnames = cx(styles.content, { [styles.fullpage]: !showSideBar });
@@ -43,7 +37,6 @@ const Content = ({ showSideBar }) => {
       <Title />
       <Counters />
       <Chart />
-      <Notification lastUpdate={lastUpdate} />
     </div>
   );
 };
