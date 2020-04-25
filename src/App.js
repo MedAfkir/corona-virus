@@ -1,17 +1,25 @@
 import React, { useState, useContext } from "react";
 
-import Error from "./components/Error";
-import SpinnerLoader from "./components/Loader";
-import Header from "./components/Header";
-import SideBar from "./components/SideBar";
-import Content from "./components/Content/Content";
+import {
+  Error,
+  SpinnerLoader,
+  Header,
+  SideBar,
+  Content,
+  Notification,
+} from "./components";
 
 import { Context } from "./Context";
 
 function App() {
   const [showSideBar, setShowSideBar] = useState(window.innerWidth > 1100);
-  const { loading, error } = useContext(Context);
+  const {
+    loading,
+    error,
+    data: { lastUpdate },
+  } = useContext(Context);
 
+  // Handle Sidebar
   const handleSideBar = () => {
     setShowSideBar(!showSideBar);
   };
@@ -31,6 +39,8 @@ function App() {
       <SideBar showSideBar={showSideBar} handleSideBar={handleSideBar} />
 
       <Content showSideBar={showSideBar} />
+
+      <Notification lastUpdate={lastUpdate} />
     </div>
   );
 }
