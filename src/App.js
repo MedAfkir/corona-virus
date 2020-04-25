@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header handleSideBar={handleSideBar} />
 
       <SideBar showSideBar={showSideBar} handleSideBar={handleSideBar} />
@@ -41,7 +41,7 @@ function App() {
       <Content showSideBar={showSideBar} />
 
       <Notification lastUpdate={lastUpdate} />
-    </div>
+    </>
   );
 }
 
